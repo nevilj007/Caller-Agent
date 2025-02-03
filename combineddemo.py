@@ -31,7 +31,7 @@ def prompt_generator(user_message: str, caller_id: str):
             name="Prompt Generator",
             model=Gemini(
                 id="gemini-2.0-flash-exp",
-                api_key="AIzaSyDB07klOR53olXgSBf9iKTDH-rzzjJcRYQ"
+                api_key="gemini api key"
             ),
             storage=PgAgentStorage(table_name=f"assistant{[caller_id]}", db_url=db_url),
             search_knowledge=True,
@@ -90,7 +90,7 @@ async def make_call(
         prompt: str = Form(...)
 ):
     headers = {
-        'authorization': 'org_cf32ff78fea328fb1b37b1e5330f896c446a5686f7996d04e46e8183a2ef173e4f6f36781573c2f152a269'
+        'authorization': 'paste the bland api key'
     }
 
     question_list = questions.split('\n')
@@ -99,7 +99,7 @@ async def make_call(
         'phone_number': phone_number,
         'task': f"Introduce yourself as assistant from Samajh ai. strictly follow{prompt} style for conversation.Ask the following questions one by one: {question_list}.if user asks any question out of context refer {knowledge_base_url} to answer it",
         'knowledge_base': knowledge_base_url,
-        'webhook': 'https://6b1c-2409-40f3-e-814b-d011-79d7-84a1-ff2a.ngrok-free.app/webhook',
+        'webhook': 'webhook link ',
         'record': True,
         'reduce_latency': True,
         'amd': True
